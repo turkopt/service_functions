@@ -21,11 +21,11 @@ func RandomSleep(args ...int) {
 //using while debuging
 func SaveContentTofile(content []byte, filename string) {
 	output, err := os.Create("./static/" + filename)
-	defer output.Close()
 	if err != nil {
 		fmt.Println("Error while creating", err)
 		return
 	}
+	defer output.Close()
 	_, err = output.Write(content)
 	if err != nil {
 		fmt.Println("Error while writing", err)
